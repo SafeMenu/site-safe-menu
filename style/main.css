@@ -35,7 +35,7 @@ body {
   width:280px;
   border-radius: 25px;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   position: absolute; /* Posicionamento absoluto em relação ao .hero */
   top: 20px; /* Distância do topo */
   left: 20px; /* Distância da esquerda */
