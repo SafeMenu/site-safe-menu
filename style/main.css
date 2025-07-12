@@ -26,16 +26,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  /* Removidos os estilos flexbox anteriores para o container do hero */
   display: block; /* Garante que o container se comporte como um bloco normal */
   text-align: center; /* Centraliza o conteúdo (h1, p, btn) dentro do container */
 }
 
 .hero .logo {
-  width:280px;
-  border-radius: 25px;
+  width: 100px;
+  border-radius: 15px;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   position: absolute; /* Posicionamento absoluto em relação ao .hero */
   top: 20px; /* Distância do topo */
   left: 20px; /* Distância da esquerda */
@@ -277,19 +276,6 @@ body {
   display: block; /* Garante que margin-bottom funcione corretamente */
 }
 
-/* Removido o .vantagem img pois agora usamos <i> */
-
-.vantagem h3 {
-  font-size: 1.3rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.vantagem p {
-  color: #555;
-  font-size: 0.95rem;
-}
-
 /* DEPOIMENTOS */
 .depoimentos {
   padding: 80px 20px;
@@ -438,4 +424,60 @@ body {
 
 .links-sociais a:hover {
   color: #d9d9ff;
+}
+
+/* MEDIA QUERIES para responsividade */
+@media screen and (max-width: 768px) {
+  /* Prints do App - para telas menores */
+  .grid-prints {
+    flex-direction: column; /* Empilha as imagens verticalmente */
+    align-items: center;    /* Centraliza as imagens empilhadas */
+    gap: 20px;              /* Mantém o espaçamento entre elas */
+  }
+
+  .grid-prints img {
+    width: 80%; /* Ajusta a largura para 80% do contêiner em telas menores */
+    max-width: 300px; /* Garante que as imagens não fiquem muito grandes */
+    height: auto;   /* Mantém a proporção da imagem */
+  }
+
+  /* Ajustes gerais de fonte e padding para telas menores */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn-cta {
+    padding: 12px 25px;
+  }
+
+  .planos h2,
+  .prints-app h2,
+  .funcionalidades h2,
+  .vantagens h2,
+  .depoimentos h2,
+  .contato h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-plano {
+    width: 90%; /* Ocupa mais largura em telas menores */
+    max-width: 350px;
+  }
+
+  .formulario-contato {
+    padding: 0 10px;
+  }
+
+  .rodape {
+    padding: 20px;
+  }
+
+  .links-sociais {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
