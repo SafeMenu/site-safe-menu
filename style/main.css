@@ -4,93 +4,120 @@
   box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* NOVAS VARIÁVEIS DE COR (Anota AI Style) */
+:root {
+  --color-primary-green: #00a884; /* Verde/Teal vibrante (Cor da última correção) */
+  --color-primary-hover: #008f6c;
+  --color-dark-text: #243743; /* Texto principal */
+  --color-light-bg: #f8f8f8; /* Fundo suave */
+  --color-white: #ffffff;
+  /* Mantendo as cores anteriores para o degradê azul, mas focando o restante no verde */
+  --color-indigo: #000766;
+  --color-indigo-light: #504b8f;
+  --color-indigo-lighter: #e6e9ff;
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
+  background-color: var(--color-light-bg);
   color: #333;
   line-height: 1.6;
 }
 
-/* HERO */
+/* CONTAINER - REGRA CENTRALIZADORA E LIMITADORA */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px; /* Mais espaço nas laterais */
+}
+
+/* HERO - CORRIGIDO PARA ALINHAMENTO À ESQUERDA */
 .hero {
-  background: linear-gradient(135deg, #504b8f, #7770d8); /* degrade índigo */
-  padding: 100px 20px; /* Isso definirá o preenchimento para o conteúdo abaixo do logo */
+  background: linear-gradient(135deg, var(--color-indigo-light), #7770d8); 
+  padding: 100px 0;
   color: #fff;
+  /* Borda arredondada no final da seção */
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* FUNDAMENTAL: Define o contexto de posicionamento para o logo */
+  position: relative;
 }
 
 .hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  display: block; /* Garante que o container se comporte como um bloco normal */
-  text-align: center; /* Centraliza o conteúdo (h1, p, btn) dentro do container */
+  padding: 20px 40px;
+  display: block;
+  text-align: left; /* ALINHA TUDO À ESQUERDA */
 }
 
 .hero .logo {
-  width: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  position: absolute; /* Posicionamento absoluto em relação ao .hero */
-  top: 20px; /* Distância do topo */
-  left: 20px; /* Distância da esquerda */
-  z-index: 10; /* Garante que o logo fique acima de outros elementos */
+  /* CORREÇÃO: Garante que o logo apareça e se alinhe à esquerda */
+  display: block; 
+  width: 80px;
+  height: auto;
+  margin-bottom: 30px;
+  margin-left: 0;
 }
 
 .hero-text {
   display: flex;
-  flex-direction: column; /* coloca h1, p, e botão um embaixo do outro */
-  gap: 15px;              /* espaçamento entre eles */
-  max-width: 600px;       /* opcional, para limitar largura */
-  margin: 0 auto;         /* Centraliza o bloco de texto horizontalmente dentro do container */
-  padding-top: 50px;      /* Adicione um padding-top para evitar que o texto seja coberto pelo logo */
+  flex-direction: column;
+  gap: 25px; 
+  max-width: 700px; 
+  /* Alinhamento à esquerda, remove o 'margin: 0 auto;' que centraliza o bloco */
+  margin: 0; 
+  padding-bottom: 50px;
+  text-align: left; /* Garante que o texto e o botão se alinhem à esquerda */
 }
 
 .hero-text h1 {
-   font-size: 2.5rem;
-  font-weight: 700;
+   font-size: 3.5rem; 
+  font-weight: 800;
   color: white;
-  margin-bottom: 0; /* Ajuste para o gap entre elementos no hero-text */
+  margin-bottom: 0;
+  line-height: 1.2;
 }
 
 .hero-text p {
-  font-size: 1.2rem;
-  color: white;
-  margin-bottom: 0; /* Ajuste para o gap entre elementos no hero-text */
+  font-size: 1.3rem; 
+  color: #d9d9ff; 
+  margin-bottom: 0;
 }
 
 
 .btn-cta {
   background-color: #fff;
-  color: #000766; /* índigo */
-  padding: 15px 30px;
+  color: var(--color-indigo); 
+  padding: 18px 35px; 
   border-radius: 10px;
   font-weight: bold;
   text-decoration: none;
   transition: 0.3s;
-  display: inline-block; /* Garante que margin-bottom e padding funcionem como esperado */
-  margin-top: 0; /* Ajuste para o gap entre elementos no hero-text */
+  display: inline-block;
+  margin-top: 0;
+  font-size: 1.1rem;
 }
 
 .btn-cta:hover {
-  background-color: #e0e0ff; /* azul clarinho */
+  background-color: #e0e0ff;
 }
 
 /* PLANOS */
 .planos {
-  padding: 80px 20px;
-  background-color: #f2f2f2;
+  padding: 100px 0;
+  background-color: var(--color-light-bg);
   text-align: center;
 }
 
 .planos h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 50px;
-  color: #000766;
+  color: var(--color-dark-text);
 }
 
 .cards-planos {
@@ -101,153 +128,220 @@ body {
 }
 
 .card-plano {
-  background-color: #fff; /* Alterado para branco para contraste */
+  background-color: var(--color-white);
   border-radius: 20px;
-  padding: 30px;
-  width: 300px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
+  padding: 40px 30px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #eee;
 }
 
 .card-plano:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
 .card-plano h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--color-dark-text);
 }
 
 .preco {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: var(--color-indigo);
 }
 
 .card-plano ul {
   list-style: none;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   text-align: left;
+  padding-left: 0;
 }
 
 .card-plano ul li {
-  margin: 10px 0;
+  margin: 12px 0;
   color: #444;
 }
 
 .btn-plano {
   display: inline-block;
-  padding: 12px 25px;
-  background-color: #000766; /* índigo */
-  color: #fff;
-  border-radius: 10px;
+  padding: 15px 30px;
+  background-color: #e0e0e0;
+  color: var(--color-dark-text);
+  border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
 }
 
 .btn-plano:hover {
-  background-color: #000766; /* índigo mais escuro */
+  background-color: #d0d0d0;
 }
 
 .destaque {
-  background-color: #e76f51;
+  background-color: #4B0082; /* Roxo escuro/índigo para Destaque */
+  color: var(--color-white);
+  box-shadow: 0 8px 15px rgba(75, 0, 130, 0.3);
 }
 
 .destaque:hover {
-  background-color: #c8583e;
+  background-color: #33005a;
+  box-shadow: 0 6px 12px rgba(75, 0, 130, 0.4);
 }
 
-/* PRINTS DO APP */
-.prints-app {
-  padding: 20px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-  background-image: url('imagens/sua-imagem-transparente.png'); /* Substitua pelo caminho da sua imagem */
-  background-repeat: no-repeat;
-  background-position: center center; /* Centraliza a imagem */
-  background-size: cover; /* Faz a imagem cobrir toda a área, substituindo a cor */
-}
 
-.prints-app h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #000766;
-}
-
-.prints-app .subtitulo {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 40px;
-}
-
-.grid-prints {
-  display: flex;          /* deixa as imagens em linha */
-  justify-content: center; /* centraliza o grupo */
-  gap: 20px;              /* espaço entre as imagens */
-  flex-wrap: nowrap;      /* evita quebra pra baixo */
-}
-
-.grid-prints img {
-  width: 200px;           /* tamanho fixo menor pra cada imagem */
-  border-radius: 20px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  object-fit: cover;      /* garante que a imagem preencha o espaço */
-}
-
-.grid-prints img:hover {
-  transform: scale(1.03);
-}
-
-/* FUNCIONALIDADES EXTRAS */
+/* FUNCIONALIDADES EXTRAS - Estilo da última correção (Anota AI Style) */
 .funcionalidades {
-  background-color: #E6F0FF; /* azul clarinho suave */
-  padding: 60px 20px;
+  background-color: var(--color-white);
+  padding: 100px 0;
   text-align: center;
 }
 
 .funcionalidades h2 {
-  color: #000766; /* índigo */
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 2.8rem;
+  color: var(--color-dark-text);
+  margin-bottom: 60px;
+  line-height: 1.2;
 }
 
-.funcionalidades ul {
-  max-width: 600px;
+.funcionalidades h2 .destaque-verde {
+    color: var(--color-primary-green);
+}
+
+.funcionalidades-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 1200px;
   margin: 0 auto;
-  list-style: none;
-  padding-left: 0;
-  font-size: 1.1rem;
-  color: #333;
+}
+
+.funcionalidades-image {
+  flex: 1;
+  min-width: 300px; 
+  max-width: 550px; 
+}
+
+.funcionalidades-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.funcionalidades-list {
+  flex: 1;
   text-align: left;
+  max-width: 550px; 
 }
 
-.funcionalidades ul li {
-  margin: 12px 0;
-  padding-left: 25px;
-  position: relative;
+.funcionalidades-list h3 {
+  font-size: 1.6rem;
+  color: var(--color-dark-text);
+  margin-bottom: 25px;
+  margin-top: 40px; 
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
 }
 
-.funcionalidades ul li::before {
-  content: "✔️";
-  position: absolute;
-  left: 0;
+.funcionalidades-list h3:first-child {
+    margin-top: 0;
 }
+
+.funcionalidades-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.funcionalidades-list ul li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.funcionalidades-list ul li i {
+  font-size: 30px;
+  color: var(--color-primary-green);
+  min-width: 30px;
+  padding-top: 5px;
+}
+
+.funcionalidades-list ul li h4 {
+  font-size: 1.3rem;
+  color: var(--color-dark-text);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.funcionalidades-list ul li p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* PRINTS DO APP */
+.prints-app {
+  padding: 80px 0;
+  background-color: var(--color-light-bg);
+  text-align: center;
+}
+
+.prints-app h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--color-dark-text);
+}
+
+.prints-app .subtitulo {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 60px;
+}
+
+.grid-prints {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.grid-prints img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.grid-prints img:hover {
+  transform: scale(1.02);
+}
+
 
 /* VANTAGENS */
 .vantagens {
-  padding: 80px 20px;
-  background-color: #fff;
+  padding: 80px 0;
+  background-color: var(--color-white);
   text-align: center;
 }
 
 .vantagens h2 {
-  font-size: 2rem;
-  color: #000766;
-  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: var(--color-dark-text);
+  margin-bottom: 60px;
 }
 
 .vantagens-grid {
@@ -257,206 +351,205 @@ body {
 }
 
 .vantagem {
-  background-color: #f2f2f2;
-  padding: 30px;
+  background-color: var(--color-light-bg);
+  padding: 35px;
   border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   transition: transform 0.3s;
+  border: 1px solid #eee;
 }
 
 .vantagem:hover {
   transform: translateY(-5px);
 }
 
-/* Estilo para os ícones */
 .vantagem i {
-  font-size: 60px; /* Tamanho do ícone, ajuste conforme necessário */
-  color: #000766; /* Cor do ícone, ajuste conforme necessário */
-  margin-bottom: 20px; /* Espaçamento abaixo do ícone */
-  display: block; /* Garante que margin-bottom funcione corretamente */
+  font-size: 60px;
+  color: var(--color-indigo);
+  margin-bottom: 20px;
+  display: block;
 }
 
 /* DEPOIMENTOS */
 .depoimentos {
-  padding: 80px 20px;
-  background-color: #f9f9f9;
+  padding: 100px 0;
+  background-color: var(--color-light-bg);
   text-align: center;
 }
 
 .depoimentos h2 {
-  font-size: 2rem;
-  color: #000766;
-  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: var(--color-dark-text);
+  margin-bottom: 60px;
 }
 
 .depoimentos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  justify-content: center;
 }
 
 .card-depoimento {
-  background-color: #fff;
-  padding: 30px;
+  background-color: var(--color-white);
+  padding: 35px;
   border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
-}
-
-.card-depoimento:hover {
-  transform: translateY(-5px);
-}
-
-.card-depoimento p {
-  font-style: italic;
-  color: #444;
-  margin-bottom: 20px;
+  text-align: left;
+  border: 1px solid #eee;
 }
 
 .card-depoimento h4 {
-  font-size: 1.1rem;
-  color: #000766;
+  font-size: 1.2rem;
+  color: var(--color-indigo);
   margin-bottom: 5px;
+  margin-top: 15px;
 }
 
-.card-depoimento span {
-  font-size: 0.9rem;
-  color: #777;
-}
 
 /* CONTATO */
 .contato {
-  padding: 80px 20px;
-  background-color: #fff;
+  padding: 80px 0;
+  background-color: var(--color-white);
   text-align: center;
 }
 
 .contato h2 {
-  font-size: 2rem;
-  color: #000766;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  color: var(--color-dark-text);
+  margin-bottom: 15px;
 }
 
 .contato .subtitulo {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
 }
 
 .formulario-contato {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto 30px;
 }
 
 .formulario-contato input,
 .formulario-contato textarea {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
 }
 
 .formulario-contato button {
-  background-color: #000766;
-  color: #fff;
+  background-color: var(--color-indigo);
+  color: var(--color-white);
   border: none;
-  padding: 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 10px;
   cursor: pointer;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 8px 15px rgba(0, 7, 102, 0.3);
   transition: 0.3s;
 }
 
 .formulario-contato button:hover {
-  background-color: #000766;
-}
-
-.whatsapp-link {
-  margin-top: 30px;
-  font-size: 1rem;
-  color: #444;
+  background-color: #00054c;
+  box-shadow: 0 6px 12px rgba(0, 7, 102, 0.4);
 }
 
 .whatsapp-link a {
-  color: #e76f51;
-  text-decoration: none;
+  color: #4B0082; 
   font-weight: bold;
-}
-
-.whatsapp-link a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* RODAPÉ */
 .rodape {
-  background-color: #4B0082;
+  background-color: var(--color-indigo); 
   color: #fff;
-  padding: 30px 20px;
+  padding: 40px 0;
   text-align: center;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   margin-top: 60px;
 }
 
-.rodape p {
-  margin-bottom: 10px;
-  font-size: 0.95rem;
+.rodape a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.rodape a:hover {
+    color: #d9d9ff;
+}
+
+.rodape .container > p {
+    margin-bottom: 20px;
 }
 
 .links-sociais {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.links-sociais a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.links-sociais a:hover {
-  color: #d9d9ff;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 /* MEDIA QUERIES para responsividade */
 @media screen and (max-width: 768px) {
-  /* Prints do App - para telas menores */
-  .grid-prints {
-    flex-direction: column; /* Empilha as imagens verticalmente */
-    align-items: center;    /* Centraliza as imagens empilhadas */
-    gap: 20px;              /* Mantém o espaçamento entre elas */
+  
+  /* HERO */
+  .hero-text h1 {
+      font-size: 2.2rem;
+  }
+  
+  .hero-text p {
+      font-size: 1.1rem;
+  }
+  
+  /* FUNCIONALIDADES EXTRAS - Responsividade */
+  .funcionalidades h2 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
   }
 
-  .grid-prints img {
-    width: 80%; /* Ajusta a largura para 80% do contêiner em telas menores */
-    max-width: 300px; /* Garante que as imagens não fiquem muito grandes */
-    height: auto;   /* Mantém a proporção da imagem */
+  .funcionalidades-content {
+      flex-direction: column;
+      gap: 40px;
+  }
+
+  .funcionalidades-image {
+      min-width: unset;
+      max-width: 90%;
+  }
+
+  .funcionalidades-list {
+      max-width: 100%;
+      padding: 0 10px;
+  }
+
+  .funcionalidades-list h3 {
+      text-align: left;
+      width: 100%;
+      font-size: 1.4rem;
+  }
+  
+  .funcionalidades-list ul li i {
+      font-size: 24px;
+      min-width: 24px;
+  }
+
+  .funcionalidades-list ul li h4 {
+      font-size: 1.1rem;
   }
 
   /* Ajustes gerais de fonte e padding para telas menores */
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .btn-cta {
-    padding: 12px 25px;
-  }
-
   .planos h2,
   .prints-app h2,
-  .funcionalidades h2,
   .vantagens h2,
   .depoimentos h2,
   .contato h2 {
@@ -464,20 +557,7 @@ body {
   }
 
   .card-plano {
-    width: 90%; /* Ocupa mais largura em telas menores */
+    width: 90%;
     max-width: 350px;
-  }
-
-  .formulario-contato {
-    padding: 0 10px;
-  }
-
-  .rodape {
-    padding: 20px;
-  }
-
-  .links-sociais {
-    flex-direction: column;
-    gap: 10px;
   }
 }
