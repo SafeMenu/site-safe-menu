@@ -8,43 +8,101 @@ html {
     scroll-behavior: smooth;
 }
 
-/* NOVAS VARIÁVEIS DE COR (Anota AI Style) */
+/* NOVAS VARIÁVEIS DE COR */
 :root {
-  --color-primary-green: #00a884; /* Verde/Teal vibrante (Cor da última correção) */
+  /* Tema Claro (Light Mode) */
+  --color-primary-green: #00a884; 
   --color-primary-hover: #008f6c;
   --color-dark-text: #243743; /* Texto principal */
-  --color-light-bg: #f8f8f8; /* Fundo suave */
-  --color-white: #ffffff;
-  /* Mantendo as cores anteriores para o degradê azul, mas focando o restante no verde */
-  --color-indigo: #000766;
-  --color-indigo-light: #504b8f;
-  --color-indigo-lighter: #e6e9ff;
+  --color-light-bg: #f8f8f8; /* Fundo suave das seções */
+  --color-white: #ffffff;    /* Fundo principal e Cards */
+  --color-text-p: #555;      /* Parágrafos e texto secundário */
+  --color-border: #eee;
+  --color-shadow: rgba(0,0,0,0.08);
+
+  /* Cores do Destaque (Hero Section) e Contato/Rodapé (Padrão) */
+  --color-indigo: #1054a8; /* AZUL ESCURO PARA TEXTO DO CTA */
+  --color-indigo-light: #1b70d8; /* NOVO AZUL DO CABEÇALHO */
+  --color-indigo-text: #d9d9ff;
+  --color-hero-grad-start: var(--color-indigo-light); /* NOVO AZUL */
+  --color-hero-grad-end: #1b70d8; /* NOVO AZUL (Sólido) */
+  --color-pro-btn: #4B0082; /* Roxo escuro para botão Pro */
 }
+
+/* Tema Escuro (Dark Mode) - SOBRESCREVE AS VARIÁVEIS */
+body.dark-mode {
+  --color-primary-green: #00e0b7; /* Verde/Teal mais claro */
+  --color-primary-hover: #00a884;
+
+  --color-dark-text: #e0e0e0; /* Texto principal claro */
+  --color-light-bg: #1f2733; /* Fundo suave (Dark Gray Blue) */
+  --color-white: #2a3544;    /* Fundo principal e Cards (Dark Blue Gray) */
+  --color-text-p: #a0a0a0;   /* Parágrafos claro */
+  --color-border: #3a475a;
+  --color-shadow: rgba(0,0,0,0.4);
+
+  /* Cores do Destaque (Hero Section) */
+  --color-indigo: #1054a8; 
+  --color-hero-grad-start: #1b70d8; /* NOVO AZUL */
+  --color-hero-grad-end: #1b70d8; /* NOVO AZUL (Sólido) */
+  --color-pro-btn: #8a2be2; 
+  
+  /* NOVO: Azul Índigo Escuro para Rodapé e Botão de Contato */
+  --color-indigo-dark: #2c3e50; 
+  --color-indigo-dark-hover: #1e2b38;
+
+
+  background-color: var(--color-light-bg);
+  color: var(--color-dark-text);
+}
+
 
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--color-light-bg);
-  color: #333;
+  color: var(--color-dark-text); 
   line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s; /* Transição suave */
 }
 
 /* CONTAINER - REGRA CENTRALIZADORA E LIMITADORA */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px; /* Mais espaço nas laterais */
+  padding: 0 40px; 
 }
 
-/* HERO - CORRIGIDO PARA ALINHAMENTO À ESQUERDA */
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, var(--color-indigo-light), #7770d8); 
+  background: linear-gradient(135deg, var(--color-hero-grad-start), var(--color-hero-grad-end)); 
   padding: 100px 0;
   color: #fff;
   /* Borda arredondada no final da seção */
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: relative; /* ESSENCIAL PARA POSICIONAR O ::BEFORE */
+  overflow: hidden; /* GARANTE QUE O ::BEFORE NÃO VAZARÁ */
+}
+
+/* MARCA D'ÁGUA: Pseudo-elemento para criar o fundo com a imagem desbotada (Watermark) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* CAMINHO CORRIGIDO: Volta um nível (..) para sair de 'style/' e entra em 'imagens/' */
+    background-image: url('../imagens/logo.png'); 
+    background-repeat: no-repeat;
+    /* CORREÇÃO: Centralizado para aparecer inteiro */
+    background-position: center; 
+    /* CORREÇÃO: Tamanho reduzido para não cortar em telas grandes */
+    background-size: 50% auto; 
+    /* PADRÃO (TODAS AS TELAS): 0.2 */
+    opacity: 0.4; 
+    z-index: 1; /* Abaixo do conteúdo principal */
 }
 
 .hero .container {
@@ -52,46 +110,222 @@ body {
   margin: 0 auto;
   padding: 20px 40px;
   display: block;
-  text-align: left; /* ALINHA TUDO À ESQUERDA */
+  text-align: left; 
+  position: relative; /* GARANTE QUE O CONTEÚDO FIQUE ACIMA DO ::BEFORE */
+  z-index: 10; /* Z-index maior que o do ::before (z-index: 1) */
 }
+
+/* NOVO ESTILO: Container de Logo e Switch */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Ajuste para o logo maior */
+}
+
+/* NOVO: Wrapper para agrupar o switch e o menu toggle */
+.nav-controls {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    align-items: center;
+}
+
 
 .hero .logo {
-  /* CORREÇÃO: Garante que o logo apareça e se alinhe à esquerda */
+  /* MODIFICADO: Logo maior, circular e com sombra suave */
   display: block; 
-  width: 80px;
-  height: auto;
-  margin-bottom: 30px;
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 4px solid var(--color-white); 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   margin-left: 0;
+  transition: all 0.3s;
 }
 
+body.dark-mode .hero .logo {
+     border-color: var(--color-primary-green); /* Muda a cor da borda no Dark Mode */
+}
+
+/* NOVO ESTILO: Botão de Tema */
+#theme-switch {
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theme-switch:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode #theme-switch {
+    border-color: var(--color-primary-green);
+    color: var(--color-primary-green);
+}
+
+/* NOVO: Botão Hamburger (oculto em telas grandes) */
+#menu-toggle {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    display: none; /* Esconde em desktop */
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+#menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode #menu-toggle {
+    border-color: var(--color-primary-green);
+    color: var(--color-primary-green);
+}
+
+/* NOVO: Menu Lateral (Sidebar) */
+#sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    background-color: var(--color-white);
+    box-shadow: -5px 0 15px var(--color-shadow);
+    z-index: 1000;
+    transform: translateX(100%); /* Escondido fora da tela */
+    transition: transform 0.3s ease-in-out;
+    padding-top: 120px; /* Espaço para o cabeçalho */
+}
+
+/* Menu aberto */
+#sidebar-menu.open {
+    transform: translateX(0);
+}
+
+body.dark-mode #sidebar-menu {
+    border-left: 1px solid var(--color-border);
+}
+
+#sidebar-menu ul {
+    list-style: none;
+    padding: 0 30px;
+}
+
+#sidebar-menu ul li {
+    margin-bottom: 5px;
+}
+
+#sidebar-menu ul li a {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    color: var(--color-dark-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.3s;
+}
+
+#sidebar-menu ul li:last-child a {
+     border-bottom: none;
+}
+
+#sidebar-menu ul li a:hover {
+    color: var(--color-primary-green);
+}
+
+/* Estilo para o separador (linha divisória) */
+#sidebar-menu .separator {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 15px 0;
+}
+
+/* Estilo para o CTA dentro do menu */
+#sidebar-menu .menu-cta {
+    background-color: var(--color-primary-green);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 15px 0;
+    border-bottom: none; /* Remove a borda inferior do CTA */
+}
+
+#sidebar-menu .menu-cta:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-white);
+}
+
+/* NOVO: Overlay de fundo escuro quando o menu estiver aberto */
+#menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+#menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* NOVO ESTILO: Centraliza o título, subtítulo e botão */
 .hero-text {
   display: flex;
   flex-direction: column;
   gap: 25px; 
-  max-width: 700px; 
-  /* Alinhamento à esquerda, remove o 'margin: 0 auto;' que centraliza o bloco */
-  margin: 0; 
+  max-width: 100%; 
+  margin: 0 auto; /* CENTRALIZA O BLOCO DE TEXTO */
   padding-bottom: 50px;
-  text-align: left; /* Garante que o texto e o botão se alinhem à esquerda */
+  text-align: center; /* CENTRALIZA O CONTEÚDO DENTRO DO BLOCO */
 }
 
 .hero-text h1 {
    font-size: 3.5rem; 
   font-weight: 800;
-  color: white;
-  margin-bottom: 0;
+  color: var(--color-white); /* Usar variável */
+  margin: 0 auto;
   line-height: 1.2;
+}
+
+/* CORREÇÃO: Garante que o H1 permaneça branco no Modo Escuro, pois a variável --color-white fica escura no dark-mode */
+body.dark-mode .hero-text h1 {
+    color: #ffffff;
 }
 
 .hero-text p {
   font-size: 1.3rem; 
-  color: #d9d9ff; 
+  color: var(--color-indigo-text); /* Usar variável */
   margin-bottom: 0;
 }
 
 
 .btn-cta {
-  background-color: #fff;
+  background-color: var(--color-white);
   color: var(--color-indigo); 
   padding: 18px 35px; 
   border-radius: 10px;
@@ -99,7 +333,7 @@ body {
   text-decoration: none;
   transition: 0.3s;
   display: inline-block;
-  margin-top: 0;
+  margin: 0 auto; /* CENTRALIZA O BOTÃO */
   font-size: 1.1rem;
 }
 
@@ -132,14 +366,14 @@ body {
   border-radius: 20px;
   padding: 40px 30px;
   width: 320px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px var(--color-shadow);
   transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
 }
 
 .card-plano:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 40px var(--color-shadow);
 }
 
 .card-plano h3 {
@@ -152,7 +386,7 @@ body {
   font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 25px;
-  color: var(--color-indigo);
+  color: var(--color-primary-green); /* Usar verde para o preço, dando destaque */
 }
 
 .card-plano ul {
@@ -164,13 +398,13 @@ body {
 
 .card-plano ul li {
   margin: 12px 0;
-  color: #444;
+  color: var(--color-text-p);
 }
 
 .btn-plano {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #e0e0e0;
+  background-color: var(--color-border); /* Cor neutra, usando border variable */
   color: var(--color-dark-text);
   border-radius: 12px;
   text-decoration: none;
@@ -183,7 +417,7 @@ body {
 }
 
 .destaque {
-  background-color: #4B0082; /* Roxo escuro/índigo para Destaque */
+  background-color: var(--color-pro-btn); 
   color: var(--color-white);
   box-shadow: 0 8px 15px rgba(75, 0, 130, 0.3);
 }
@@ -193,6 +427,9 @@ body {
   box-shadow: 0 6px 12px rgba(75, 0, 130, 0.4);
 }
 
+body.dark-mode .destaque {
+     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+}
 
 /* FUNCIONALIDADES EXTRAS - Estilo da última correção (Anota AI Style) */
 .funcionalidades {
@@ -232,7 +469,7 @@ body {
   width: 100%;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px var(--color-shadow);
 }
 
 .funcionalidades-list {
@@ -248,7 +485,7 @@ body {
   margin-top: 40px; 
   font-weight: 700;
   padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--color-border);
 }
 
 .funcionalidades-list h3:first-child {
@@ -284,7 +521,7 @@ body {
 
 .funcionalidades-list ul li p {
   font-size: 1rem;
-  color: #555;
+  color: var(--color-text-p);
   line-height: 1.5;
 }
 
@@ -304,7 +541,7 @@ body {
 
 .prints-app .subtitulo {
   font-size: 1.2rem;
-  color: #555;
+  color: var(--color-text-p);
   margin-bottom: 60px;
 }
 
@@ -320,7 +557,7 @@ body {
   max-width: 300px;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px var(--color-shadow);
   transition: transform 0.3s ease;
   cursor: pointer;
   object-fit: cover;
@@ -354,9 +591,9 @@ body {
   background-color: var(--color-light-bg);
   padding: 35px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px var(--color-shadow);
   transition: transform 0.3s;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
 }
 
 .vantagem:hover {
@@ -365,7 +602,7 @@ body {
 
 .vantagem i {
   font-size: 60px;
-  color: var(--color-indigo);
+  color: var(--color-primary-green); /* Usar verde para os ícones */
   margin-bottom: 20px;
   display: block;
 }
@@ -394,17 +631,21 @@ body {
   background-color: var(--color-white);
   padding: 35px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px var(--color-shadow);
   transition: transform 0.3s ease;
   text-align: left;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
 }
 
 .card-depoimento h4 {
   font-size: 1.2rem;
-  color: var(--color-indigo);
+  color: var(--color-primary-green); /* Usar verde para o nome */
   margin-bottom: 5px;
   margin-top: 15px;
+}
+
+.card-depoimento span {
+    color: var(--color-text-p);
 }
 
 
@@ -423,7 +664,7 @@ body {
 
 .contato .subtitulo {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--color-text-p);
     margin-bottom: 40px;
 }
 
@@ -438,9 +679,11 @@ body {
 .formulario-contato input,
 .formulario-contato textarea {
   padding: 18px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   font-size: 1rem;
+  background-color: var(--color-light-bg);
+  color: var(--color-dark-text);
 }
 
 .formulario-contato button {
@@ -461,8 +704,18 @@ body {
   box-shadow: 0 6px 12px rgba(0, 7, 102, 0.4);
 }
 
+/* NOVO: Estilo do botão de contato no Dark Mode (Azul Índigo) */
+body.dark-mode .formulario-contato button {
+    background-color: var(--color-indigo-dark); 
+    box-shadow: 0 8px 15px rgba(44, 62, 80, 0.5);
+}
+
+body.dark-mode .formulario-contato button:hover {
+    background-color: var(--color-indigo-dark-hover);
+}
+
 .whatsapp-link a {
-  color: #4B0082; 
+  color: var(--color-primary-green); /* Usar o verde primário */
   font-weight: bold;
   text-decoration: none;
 }
@@ -476,6 +729,11 @@ body {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   margin-top: 60px;
+}
+
+/* NOVO: Estilo do rodapé no Dark Mode (Azul Índigo) */
+body.dark-mode .rodape {
+    background-color: var(--color-indigo-dark);
 }
 
 .rodape a {
@@ -502,13 +760,35 @@ body {
 /* MEDIA QUERIES para responsividade */
 @media screen and (max-width: 768px) {
   
+  /* Container */
+  .container {
+    padding: 0 20px;
+  }
+  
   /* HERO */
+  /* Ajuste para mobile (Watermark) */
+  .hero::before {
+      background-size: 100% auto; 
+      /* A propriedade 'opacity' foi removida daqui, garantindo que o 0.2 da regra geral seja usado */
+  }
+  
   .hero-text h1 {
       font-size: 2.2rem;
   }
   
   .hero-text p {
       font-size: 1.1rem;
+  }
+  
+  /* Logo */
+  .hero .logo {
+      width: 80px; /* Reduz o tamanho do logo em telas menores */
+      height: 80px;
+  }
+  
+  /* Mostrar o botão hamburger em mobile */
+  #menu-toggle {
+      display: flex; 
   }
   
   /* FUNCIONALIDADES EXTRAS - Responsividade */
@@ -541,10 +821,6 @@ body {
   .funcionalidades-list ul li i {
       font-size: 24px;
       min-width: 24px;
-  }
-
-  .funcionalidades-list ul li h4 {
-      font-size: 1.1rem;
   }
 
   /* Ajustes gerais de fonte e padding para telas menores */

@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safe Menu - Cardápio Digital</title>
-    <link rel="stylesheet" href="style/main.css" />
+    
+    <link rel="stylesheet" href="style/main.css?v=1.0.1" /> 
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
@@ -15,11 +17,41 @@
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
 
     
+    <script src="script/theme-switcher.js" defer></script> 
+    <script src="script/menu.js" defer></script> 
   </head>
   <body>
+    <nav id="sidebar-menu">
+        <ul>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li class="separator"></li>
+            <li><a href="politica_privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termos_uso.html">Termos de Uso</a></li>
+            <li class="separator"></li>
+            <li><a href="https://wa.me/64999729284" target="_blank" class="menu-cta">Quero Testar Agora!</a></li>
+        </ul>
+    </nav>
+    
     <header class="hero">
       <div class="container">
-        <img src="imagens/logo.png" alt="Logo Safe Menu" class="logo" />
+        <div class="header-content">
+            <img src="imagens/logo.png" alt="Logo Safe Menu" class="logo" />
+            
+            <div class="nav-controls">
+                <button id="theme-switch" aria-label="Alternar modo escuro/claro">
+                     <i class="fi fi-rr-sun" id="sun-icon"></i>
+                     <i class="fi fi-sr-moon" id="moon-icon" style="display: none;"></i>
+                </button>
+                
+                <button id="menu-toggle" aria-label="Abrir menu de navegação">
+                    <i class="fi fi-rr-menu-burger"></i>
+                </button>
+            </div>
+
+        </div>
+
         <div class="hero-text">
           <h1>Seu cardápio digital com pedidos via WhatsApp</h1>
           <p>Economize tempo e dinheiro com uma gestão completa do seu restaurante.</p>
@@ -30,7 +62,7 @@
       </div>
     </header>
 
-    <section class="planos">
+    <section class="planos" id="planos">
       <div class="container">
         <h2>Escolha o plano ideal para o seu negócio</h2>
         <div class="cards-planos">
@@ -68,7 +100,7 @@
       </div>
     </section>
 
-    <section class="funcionalidades">
+    <section class="funcionalidades" id="funcionalidades">
       <div class="container"> 
         <h2>Gestão completa para <span class="destaque-verde">sua loja</span> em uma única assinatura.</h2>
         <div class="funcionalidades-content">
@@ -215,7 +247,7 @@
       </div>
     </section>
 
-    <section class="contato">
+    <section class="contato" id="contato">
       <div class="container">
         <h2>Pronto para aumentar suas vendas?</h2>
         <p class="subtitulo">
