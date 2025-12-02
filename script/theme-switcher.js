@@ -15,14 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIcons(false);
     }
 
-    // Função para atualizar os ícones
+    // Função para atualizar os ícones e atributos de acessibilidade
     function updateIcons(isDarkMode) {
         if (isDarkMode) {
             sunIcon.style.display = 'none';
             moonIcon.style.display = 'block';
+            themeSwitch.setAttribute('aria-pressed', 'true');
+            themeSwitch.setAttribute('aria-label', 'Mudar para modo claro');
         } else {
             sunIcon.style.display = 'block';
             moonIcon.style.display = 'none';
+            themeSwitch.setAttribute('aria-pressed', 'false');
+            themeSwitch.setAttribute('aria-label', 'Mudar para modo escuro');
         }
     }
 
@@ -36,5 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 4. Atualizar os ícones
         updateIcons(isDarkMode);
+    });
+
+    // 5. Detectar mudanças na preferência do sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Só muda automaticamente se o usuário não tiver preferência salva
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                body.classList.add('dark-mode');
+                updateIcons(true);
+            } else {
+                body.classList.remove('dark-mode');
+                updateIcons(false);
+            }
+        }
     });
 });

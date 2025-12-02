@@ -3,9 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Safe Menu - Cardápio Digital</title>
+    <meta name="description" content="Safe Menu - Cardápio digital com pedidos via WhatsApp. Gestão completa para seu restaurante com controle de estoque, pedidos e caixa. Plano gratuito disponível!" />
+    <meta name="keywords" content="cardápio digital, pedidos whatsapp, gestão restaurante, controle de estoque, cardápio online, QR code cardápio" />
+    <meta name="author" content="Safe Menu" />
+    <meta name="robots" content="index, follow" />
     
-    <link rel="stylesheet" href="style/main.css?v=1.0.1" /> 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://safemenu.com.br/" />
+    <meta property="og:title" content="Safe Menu - Cardápio Digital com WhatsApp" />
+    <meta property="og:description" content="Economize tempo e dinheiro com uma gestão completa do seu restaurante. Cardápio digital + pedidos via WhatsApp." />
+    <meta property="og:image" content="imagens/logo.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://safemenu.com.br/" />
+    <meta property="twitter:title" content="Safe Menu - Cardápio Digital com WhatsApp" />
+    <meta property="twitter:description" content="Economize tempo e dinheiro com uma gestão completa do seu restaurante." />
+    <meta property="twitter:image" content="imagens/logo.png" />
+    
+    <title>Safe Menu - Cardápio Digital com Pedidos via WhatsApp | Gestão Completa</title>
+    
+    <link rel="stylesheet" href="style/main.css?v=5.7.0" /> 
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -17,124 +36,500 @@
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
 
     
-    <script src="script/theme-switcher.js" defer></script> 
+    <script src="script/theme-switcher.js" defer></script>
     <script src="script/menu.js" defer></script> 
+    <script src="script/faq.js" defer></script>
   </head>
   <body>
-    <nav id="sidebar-menu">
-        <ul>
-            <li><a href="#planos">Planos</a></li>
-            <li><a href="#funcionalidades">Funcionalidades</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <li class="separator"></li>
-            <li><a href="politica_privacidade.html">Política de Privacidade</a></li>
-            <li><a href="termos_uso.html">Termos de Uso</a></li>
-            <li class="separator"></li>
-            <li><a href="https://wa.me/64999729284" target="_blank" class="menu-cta">Quero Testar Agora!</a></li>
+    <!-- Menu Lateral Responsivo (Mobile) -->
+    <nav id="sidebar-menu" aria-label="Menu de navegação mobile">
+        <div class="sidebar-header">
+            <img src="imagens/logo.png" alt="Safe Menu" class="sidebar-logo" width="60" height="60" />
+            <button id="menu-close" aria-label="Fechar menu" type="button">
+                <i class="fi fi-rr-cross" aria-hidden="true"></i>
+            </button>
+        </div>
+        <ul role="list">
+            <li><a href="#inicio" title="Ir para o início">Início</a></li>
+            <li><a href="#como-funciona" title="Como funciona o Safe Menu">Como Funciona</a></li>
+            <li><a href="#planos" title="Ver planos e preços">Planos</a></li>
+            <li><a href="#comparacao" title="Comparar planos">Comparação</a></li>
+            <li><a href="#funcionalidades" title="Conhecer funcionalidades">Funcionalidades</a></li>
+            <li><a href="#cupons" title="Sistema de cupons">Cupons</a></li>
+            <li><a href="#faq" title="Perguntas frequentes">FAQ</a></li>
+            <li><a href="#contato" title="Entre em contato">Contato</a></li>
+            <li class="separator" role="separator"></li>
+            <li><a href="politica_privacidade.html" title="Ler política de privacidade">Política de Privacidade</a></li>
+            <li><a href="termos_uso.html" title="Ler termos de uso">Termos de Uso</a></li>
+            <li class="separator" role="separator"></li>
+            <li><a href="https://wa.me/64999729284" target="_blank" rel="noopener noreferrer" class="menu-cta" title="Iniciar teste gratuito no WhatsApp">
+                <i class="fi fi-brands-whatsapp"></i> Teste Gratuito
+            </a></li>
         </ul>
     </nav>
     
-    <header class="hero">
+    <!-- Header Fixo -->
+    <header class="main-header" role="banner">
       <div class="container">
-        <div class="header-content">
-            <img src="imagens/logo.png" alt="Logo Safe Menu" class="logo" />
+        <div class="header-wrapper">
+            <!-- Logo -->
+            <a href="#" class="logo-link" aria-label="Safe Menu - Ir ao topo">
+              <img src="imagens/logo.png" alt="Safe Menu" class="header-logo" width="55" height="55" loading="eager" />
+              <span class="logo-text">Safe Menu</span>
+            </a>
             
-            <div class="nav-controls">
-                <button id="theme-switch" aria-label="Alternar modo escuro/claro">
-                     <i class="fi fi-rr-sun" id="sun-icon"></i>
-                     <i class="fi fi-sr-moon" id="moon-icon" style="display: none;"></i>
+            <!-- Navegação Desktop -->
+            <nav class="desktop-nav" aria-label="Navegação principal">
+                <ul role="list">
+                    <li><a href="#como-funciona" title="Como funciona">Como Funciona</a></li>
+                    <li><a href="#planos" title="Ver planos">Planos</a></li>
+                    <li><a href="#funcionalidades" title="Funcionalidades">Funcionalidades</a></li>
+                    <li><a href="#faq" title="Perguntas frequentes">FAQ</a></li>
+                    <li><a href="#contato" title="Contato">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Ações do Header -->
+            <div class="header-actions">
+                <button id="theme-switch" aria-label="Alternar tema" aria-pressed="false" type="button" class="icon-button">
+                     <i class="fi fi-rr-sun" id="sun-icon" aria-hidden="true"></i>
+                     <i class="fi fi-sr-moon" id="moon-icon" style="display: none;" aria-hidden="true"></i>
                 </button>
                 
-                <button id="menu-toggle" aria-label="Abrir menu de navegação">
-                    <i class="fi fi-rr-menu-burger"></i>
+                <a href="https://wa.me/64999729284" target="_blank" rel="noopener noreferrer" class="btn-header-cta" title="Iniciar teste gratuito">
+                    <i class="fi fi-brands-whatsapp"></i>
+                    <span>Teste Grátis</span>
+                </a>
+                
+                <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" type="button" class="icon-button mobile-only">
+                    <i class="fi fi-rr-menu-burger" aria-hidden="true"></i>
                 </button>
             </div>
-
-        </div>
-
-        <div class="hero-text">
-          <h1>Seu cardápio digital com pedidos via WhatsApp</h1>
-          <p>Economize tempo e dinheiro com uma gestão completa do seu restaurante.</p>
-          <a href="https://wa.me/64999729284" class="btn-cta"
-            >Quero testar agora</a
-          >
         </div>
       </div>
     </header>
-
-    <section class="planos" id="planos">
+    
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-label="Apresentação">
       <div class="container">
-        <h2>Escolha o plano ideal para o seu negócio</h2>
-        <div class="cards-planos">
-          <div class="card-plano free">
-            <h3>Plano Gratuito</h3>
-            <p class="preco">R$ 0,00 / mês</p>
-            <ul>
-              <li>✔️ Cardápio digital</li>
-              <li>✔️ Link personalizado</li>
-              <li>✔️ QR Code para clientes</li>
-            </ul>
-            <a href="https://wa.me/64999729284" class="btn-plano"
-              >Usar grátis</a
-            >
+        <div class="hero-content-wrapper">
+          <!-- Badge Superior -->
+          <div class="hero-badge">
+            <i class="fi fi-rr-sparkles"></i>
+            <span>Plataforma completa para seu negócio</span>
           </div>
-
-          <div class="card-plano pro">
-            <h3>Plano Pro</h3>
-            <p class="preco">R$ 49,99 / mês</p>
-            <ul>
-              <li>✅ Tudo do plano gratuito +</li>
-              <li>✅ Fechamento de caixa</li>
-              <li>✅ Pedidos pelo WhatsApp</li>
-              <li>✅ Controle de estoque</li>
-              <li>✅ Horário de funcionamento</li>
-              <li>✅ Controle de pedidos</li>
-              <li>✅ Suporte 24/7</li>
-              <li>✅ Atualizações futuras</li>
-            </ul>
-            <a href="https://wa.me/64999729284" class="btn-plano destaque"
-              >Quero o Pro</a
-            >
+          
+          <!-- Título Principal -->
+          <h1 class="hero-title">
+            Cardápio Digital Inteligente com
+            <span class="hero-highlight">Pedidos Automáticos</span>
+            via WhatsApp
+          </h1>
+          
+          <!-- Subtítulo -->
+          <p class="hero-subtitle">
+            Modernize seu restaurante com uma plataforma completa: cardápio digital profissional, pedidos direto no WhatsApp e gestão em tempo real. Aumente suas vendas e economize tempo.
+          </p>
+          
+          <!-- Features Rápidas -->
+          <div class="hero-features">
+            <div class="hero-feature-item">
+              <i class="fi fi-rr-check-circle"></i>
+              <span>Sem mensalidade no plano básico</span>
+            </div>
+            <div class="hero-feature-item">
+              <i class="fi fi-rr-check-circle"></i>
+              <span>Configuração em minutos</span>
+            </div>
+            <div class="hero-feature-item">
+              <i class="fi fi-rr-check-circle"></i>
+              <span>Suporte dedicado</span>
+            </div>
+          </div>
+          
+          <!-- CTAs -->
+          <div class="hero-cta-group">
+            <a href="https://wa.me/64999729284" class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer" title="Iniciar teste gratuito via WhatsApp">
+              <i class="fi fi-brands-whatsapp"></i>
+              <span>Começar Grátis Agora</span>
+            </a>
+            <a href="#planos" class="btn-cta btn-secondary" title="Conhecer nossos planos">
+              <i class="fi fi-rr-rocket"></i>
+              <span>Conhecer Planos</span>
+            </a>
+          </div>
+          
+          <!-- Prova Social -->
+          <div class="hero-social-proof">
+            <div class="proof-item">
+              <strong>500+</strong>
+              <span>Restaurantes ativos</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+              <strong>50mil+</strong>
+              <span>Pedidos processados</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+              <strong>4.9/5</strong>
+              <span>Avaliação média</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="funcionalidades" id="funcionalidades">
-      <div class="container"> 
-        <h2>Gestão completa para <span class="destaque-verde">sua loja</span> em uma única assinatura.</h2>
-        <div class="funcionalidades-content">
-          <div class="funcionalidades-image">
-            <img src="imagens/funcionalidades.png" alt="Dashboard do aplicativo" /> 
+    <!-- Seção Como Funciona -->
+    <section class="como-funciona" id="como-funciona" aria-labelledby="como-funciona-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="como-funciona-heading">Como Funciona?</h2>
+          <p class="section-subtitle">Em apenas 4 passos simples, seu restaurante está no digital</p>
+        </div>
+        
+        <div class="timeline">
+          <article class="timeline-item" data-step="1">
+            <div class="timeline-icon">
+              <i class="fi fi-rr-user-add"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Cadastre-se Grátis</h3>
+              <p>Crie sua conta em menos de 2 minutos pelo WhatsApp. Sem burocracia, sem cartão de crédito.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item" data-step="2">
+            <div class="timeline-icon">
+              <i class="fi fi-rr-edit"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Personalize seu Cardápio</h3>
+              <p>Adicione produtos, fotos, preços e descrições. Configure categorias e opções de personalização.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item" data-step="3">
+            <div class="timeline-icon">
+              <i class="fi fi-rr-share"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Compartilhe com Clientes</h3>
+              <p>Receba seu link único e QR Code. Compartilhe nas redes sociais, cardápios físicos e delivery.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item" data-step="4">
+            <div class="timeline-icon">
+              <i class="fi fi-rr-rocket"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Receba Pedidos Automáticos</h3>
+              <p>Seus clientes fazem pedidos direto no WhatsApp de forma automática. Você só precisa confirmar!</p>
+            </div>
+          </article>
+        </div>
+        
+        <div class="cta-center">
+          <a href="https://wa.me/64999729284" class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">
+            <i class="fi fi-brands-whatsapp"></i>
+            <span>Começar Agora em 2 Minutos</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Planos e Preços -->
+    <section class="planos" id="planos" aria-labelledby="planos-heading">
+      <div class="container">
+        <h2 id="planos-heading">Escolha o plano ideal para o seu negócio</h2>
+        <div class="cards-planos" role="list">
+          <!-- Plano Gratuito -->
+          <article class="card-plano free" role="listitem">
+            <header>
+              <h3>Plano Gratuito</h3>
+              <p class="preco" aria-label="Preço: gratuito"><span aria-hidden="true">R$</span> 0,00 <span class="periodo">/ mês</span></p>
+            </header>
+            <ul role="list" aria-label="Recursos inclusos no plano gratuito">
+              <li><span aria-hidden="true">✔️</span> Cardápio digital</li>
+              <li><span aria-hidden="true">✔️</span> Link personalizado</li>
+              <li><span aria-hidden="true">✔️</span> QR Code para clientes</li>
+            </ul>
+            <footer>
+              <a href="https://wa.me/64999729284" class="btn-plano" target="_blank" rel="noopener noreferrer" title="Começar a usar o plano gratuito">Usar grátis</a>
+            </footer>
+          </article>
+
+          <!-- Plano Pro -->
+          <article class="card-plano pro" role="listitem">
+            <header>
+              <h3>Plano Pro <span class="badge">Mais Popular</span></h3>
+              <p class="preco" aria-label="Preço: quarenta e nove reais e noventa e nove centavos por mês"><span aria-hidden="true">R$</span> 49,99 <span class="periodo">/ mês</span></p>
+            </header>
+            <ul role="list" aria-label="Recursos inclusos no plano pro">
+              <li><span aria-hidden="true">✅</span> Tudo do plano gratuito +</li>
+              <li><span aria-hidden="true">✅</span> Fechamento de caixa</li>
+              <li><span aria-hidden="true">✅</span> Pedidos pelo WhatsApp</li>
+              <li><span aria-hidden="true">✅</span> Controle de estoque</li>
+              <li><span aria-hidden="true">✅</span> Horário de funcionamento</li>
+              <li><span aria-hidden="true">✅</span> Controle de pedidos</li>
+              <li><span aria-hidden="true">✅</span> Sistema de cupons de desconto</li>
+              <li><span aria-hidden="true">✅</span> Suporte 24/7</li>
+              <li><span aria-hidden="true">✅</span> Atualizações futuras</li>
+            </ul>
+            <footer>
+              <a href="https://wa.me/64999729284" class="btn-plano destaque" target="_blank" rel="noopener noreferrer" title="Assinar o plano Pro">Quero o Pro</a>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparação de Planos Detalhada -->
+    <section class="comparacao-planos" id="comparacao" aria-labelledby="comparacao-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="comparacao-heading">Compare os Planos em Detalhes</h2>
+          <p class="section-subtitle">Veja todas as funcionalidades disponíveis em cada plano</p>
+        </div>
+        
+        <div class="tabela-comparacao">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Funcionalidades</th>
+                <th scope="col" class="plan-col free">Gratuito</th>
+                <th scope="col" class="plan-col pro">Pro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cardápio Digital Completo</td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Link Personalizado</td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>QR Code para Clientes</td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Pedidos via WhatsApp Automáticos</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Controle de Pedidos em Tempo Real</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Fechamento de Caixa Automático</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Controle de Estoque</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Horário de Funcionamento</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Relatórios e Análises</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Sistema de Cupons de Desconto</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Suporte Prioritário 24/7</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr>
+                <td>Atualizações Futuras Incluídas</td>
+                <td class="no-check"><i class="fi fi-rr-cross"></i></td>
+                <td class="check"><i class="fi fi-rr-check"></i></td>
+              </tr>
+              <tr class="price-row">
+                <td><strong>Investimento</strong></td>
+                <td class="price-cell"><strong>R$ 0,00</strong></td>
+                <td class="price-cell highlight"><strong>R$ 49,99/mês</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Cupons de Desconto -->
+    <section class="cupons-desconto" id="cupons" aria-labelledby="cupons-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="cupons-heading">Sistema de Cupons de Desconto</h2>
+          <p class="section-subtitle">Fidelize clientes e aumente suas vendas com cupons personalizados</p>
+        </div>
+        
+        <div class="cupons-grid">
+          <div class="cupom-feature">
+            <div class="cupom-icon">
+              <i class="fi fi-rr-badge-percent"></i>
+            </div>
+            <h3>Descontos Personalizados</h3>
+            <p>Crie cupons com percentual ou valor fixo. Defina limite de uso, validade e produtos específicos para cada campanha.</p>
           </div>
+          
+          <div class="cupom-feature">
+            <div class="cupom-icon">
+              <i class="fi fi-rr-users"></i>
+            </div>
+            <h3>Fidelização de Clientes</h3>
+            <p>Recompense clientes fiéis com cupons exclusivos. Envie promoções especiais para aniversariantes e datas comemorativas.</p>
+          </div>
+          
+          <div class="cupom-feature">
+            <div class="cupom-icon">
+              <i class="fi fi-rr-chart-line-up"></i>
+            </div>
+            <h3>Impulsione Vendas</h3>
+            <p>Recupere carrinhos abandonados, incentive primeira compra e crie urgência com cupons de tempo limitado.</p>
+          </div>
+          
+          <div class="cupom-feature">
+            <div class="cupom-icon">
+              <i class="fi fi-rr-analytics"></i>
+            </div>
+            <h3>Controle Total</h3>
+            <p>Acompanhe uso de cada cupom em tempo real. Veja quantas pessoas usaram, valor total de desconto e ROI das campanhas.</p>
+          </div>
+        </div>
+        
+        <div class="cupom-showcase">
+          <div class="showcase-content">
+            <div class="showcase-badge">
+              <i class="fi fi-rr-star"></i>
+              <span>Recurso Exclusivo Pro</span>
+            </div>
+            <h3>Como Funciona?</h3>
+            <ul class="cupom-steps">
+              <li>
+                <i class="fi fi-rr-add"></i>
+                <div>
+                  <strong>1. Crie seu cupom</strong>
+                  <p>Defina código, valor/percentual, produtos e validade</p>
+                </div>
+              </li>
+              <li>
+                <i class="fi fi-rr-share"></i>
+                <div>
+                  <strong>2. Compartilhe</strong>
+                  <p>Envie para clientes via WhatsApp ou redes sociais</p>
+                </div>
+              </li>
+              <li>
+                <i class="fi fi-rr-shopping-cart-check"></i>
+                <div>
+                  <strong>3. Cliente aplica no pedido</strong>
+                  <p>Desconto calculado automaticamente no carrinho</p>
+                </div>
+              </li>
+              <li>
+                <i class="fi fi-rr-chart-histogram"></i>
+                <div>
+                  <strong>4. Acompanhe resultados</strong>
+                  <p>Veja performance de cada cupom no dashboard</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="showcase-examples">
+            <h4>Exemplos de Cupons</h4>
+            <div class="cupom-card">
+              <div class="cupom-card-header">
+                <i class="fi fi-rr-gift"></i>
+                <span class="cupom-code">BEMVINDO10</span>
+              </div>
+              <p class="cupom-value">10% de desconto</p>
+              <p class="cupom-desc">Para primeira compra</p>
+            </div>
+            
+            <div class="cupom-card">
+              <div class="cupom-card-header">
+                <i class="fi fi-rr-birthday-cake"></i>
+                <span class="cupom-code">ANIVERSARIO</span>
+              </div>
+              <p class="cupom-value">R$ 15 OFF</p>
+              <p class="cupom-desc">Válido no mês do aniversário</p>
+            </div>
+            
+            <div class="cupom-card">
+              <div class="cupom-card-header">
+                <i class="fi fi-rr-rocket"></i>
+                <span class="cupom-code">PRIMEIRACOMPRA</span>
+              </div>
+              <p class="cupom-value">20% de desconto</p>
+              <p class="cupom-desc">Apenas para novos clientes</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cta-center">
+          <a href="https://wa.me/64999729284" class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">
+            <i class="fi fi-brands-whatsapp"></i>
+            <span>Ativar Cupons no Meu Negócio</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Funcionalidades -->
+    <section class="funcionalidades" id="funcionalidades" aria-labelledby="funcionalidades-heading">
+      <div class="container"> 
+        <h2 id="funcionalidades-heading">Gestão completa para <span class="destaque-verde">sua loja</span> em uma única assinatura.</h2>
+        <div class="funcionalidades-content">
+          <figure class="funcionalidades-image">
+            <img src="imagens/funcionalidades.png" alt="Interface do dashboard Safe Menu mostrando controle de pedidos e estoque" width="550" height="auto" loading="lazy" />
+          </figure>
           <div class="funcionalidades-list">
 
             <h3>Para facilitar suas vendas</h3>
-            <ul>
+            <ul role="list" aria-label="Recursos para vendas">
               <li>
-                <i class="fi fi-rr-menu-burger"></i> 
+                <i class="fi fi-rr-menu-burger" aria-hidden="true"></i> 
                 <div class="text-content">
                   <h4>Cardápio Digital</h4>
                   <p>Para facilitar a visualização e escolha dos produtos pelos clientes.</p>
                 </div>
               </li>
               <li>
-                <i class="fi fi-rr-paper-plane"></i> 
+                <i class="fi fi-rr-paper-plane" aria-hidden="true"></i> 
                 <div class="text-content">
                   <h4>Pedidos via WhatsApp</h4>
                   <p>Receba pedidos diretamente no WhatsApp com um cardápio digital simples e intuitivo.</p>
                 </div>
-              </li>   
-                   
+              </li>
               <li>
-                  <i class="fi fi-rr-alarm-clock"></i> 
-                  <div class="text-content">
-                    <h4>Horário de Funcionamento</h4>
-                    <p>Defina horários específicos para aceitar pedidos, evitando confusões fora do expediente.</p>
-                  </div>
+                <i class="fi fi-rr-alarm-clock" aria-hidden="true"></i> 
+                <div class="text-content">
+                  <h4>Horário de Funcionamento</h4>
+                  <p>Defina horários específicos para aceitar pedidos, evitando confusões fora do expediente.</p>
+                </div>
+              </li>
               <li>
-                
-                <i class="fi fi-rr-qrcode"></i> 
+                <i class="fi fi-rr-qrcode" aria-hidden="true"></i> 
                 <div class="text-content">
                   <h4>QR Code para compartilhamento</h4>
                   <p>Crie um cardápio digital com QR Code para facilitar o autoatendimento na sua loja.</p>
@@ -143,151 +538,590 @@
             </ul>
             
             <h3>Para gestão do estabelecimento</h3>
-             <ul>
+            <ul role="list" aria-label="Recursos para gestão">
               <li>
-                <i class="fi fi-rr-boxes"></i> 
+                <i class="fi fi-rr-boxes" aria-hidden="true"></i> 
                 <div class="text-content">
                   <h4>Controle de Estoque</h4>
                   <p>Controle total sobre seu estoque, com alertas para itens em falta.</p>
                 </div>
               </li>
               <li>
-                <i class="fi fi-rr-list-check"></i> 
+                <i class="fi fi-rr-list-check" aria-hidden="true"></i> 
                 <div class="text-content">
                   <h4>Controle de Pedidos</h4>
                   <p>Tenha todos os pedidos em um só lugar e gerencie com facilidade sua loja.</p>
                 </div>
               </li>
               <li>
-                <i class="fi fi-rr-wallet"></i> 
+                <i class="fi fi-rr-wallet" aria-hidden="true"></i> 
                 <div class="text-content">
-                  <h4>Controle de caixa</h4>
+                  <h4>Controle de Caixa</h4>
                   <p>Gerencie suas vendas e tenha um controle total sobre o fluxo de caixa da sua loja.</p>
                 </div>
-                <li>
-                <i class="fi fi-rr-arrow-trend-up"></i> 
+              </li>
+              <li>
+                <i class="fi fi-rr-arrow-trend-up" aria-hidden="true"></i> 
                 <div class="text-content">
-                  <h4>vendas automaticas no estoque </h4>
+                  <h4>Vendas Automáticas no Estoque</h4>
                   <p>Fechamento automático de caixas com vendas no estoque para evitar perdas.</p>
                 </div>
               </li>
-              </li>
             </ul>
-            <h4> Safe Menu simplificando seu negócio.</h4>
-
+            <p class="funcionalidades-footer"><strong>Safe Menu</strong> simplificando seu negócio.</p>
           </div>
         </div>
       </div> 
-    </section> 
-    
-    <section class="prints-app">
+    </section>
+
+    <!-- Seção Antes vs Depois -->
+    <section class="antes-depois" aria-labelledby="antes-depois-heading">
       <div class="container">
-        <h2>Veja o Safe Menu em ação</h2>
+        <div class="section-header">
+          <h2 id="antes-depois-heading">Transforme seu Atendimento</h2>
+          <p class="section-subtitle">Veja como o Safe Menu resolve os principais problemas dos restaurantes</p>
+        </div>
+        
+        <div class="comparacao-grid">
+          <div class="comparacao-col antes">
+            <div class="col-header">
+              <i class="fi fi-rr-cross-circle"></i>
+              <h3>Sem Safe Menu</h3>
+            </div>
+            
+            <div class="problema-item">
+              <i class="fi fi-rr-sad"></i>
+              <p>Cardápio de papel desatualizado e com custo de impressão</p>
+            </div>
+            
+            <div class="problema-item">
+              <i class="fi fi-rr-sad"></i>
+              <p>Pedidos anotados à mão, sujeitos a erros e confusão</p>
+            </div>
+            
+            <div class="problema-item">
+              <i class="fi fi-rr-sad"></i>
+              <p>Cliente precisa ligar ou esperar para fazer pedido</p>
+            </div>
+            
+            <div class="problema-item">
+              <i class="fi fi-rr-sad"></i>
+              <p>Sem controle de estoque, vendendo produtos indisponíveis</p>
+            </div>
+            
+            <div class="problema-item">
+              <i class="fi fi-rr-sad"></i>
+              <p>Fechamento de caixa manual, demorado e propenso a erros</p>
+            </div>
+            
+            <div class="problema-item">
+              <i class="fi fi-rr-sad"></i>
+              <p>Sem relatórios, difícil identificar produtos mais vendidos</p>
+            </div>
+          </div>
+          
+          <div class="divisor-vs">
+            <span>VS</span>
+          </div>
+          
+          <div class="comparacao-col depois">
+            <div class="col-header success">
+              <i class="fi fi-rr-check-circle"></i>
+              <h3>Com Safe Menu</h3>
+            </div>
+            
+            <div class="solucao-item">
+              <i class="fi fi-rr-smile"></i>
+              <p>Cardápio digital sempre atualizado, sem custo de impressão</p>
+            </div>
+            
+            <div class="solucao-item">
+              <i class="fi fi-rr-smile"></i>
+              <p>Pedidos automáticos no WhatsApp, sem erros de comunicação</p>
+            </div>
+            
+            <div class="solucao-item">
+              <i class="fi fi-rr-smile"></i>
+              <p>Cliente faz pedido quando quiser, 24h disponível</p>
+            </div>
+            
+            <div class="solucao-item">
+              <i class="fi fi-rr-smile"></i>
+              <p>Controle de estoque em tempo real, evita vendas frustradas</p>
+            </div>
+            
+            <div class="solucao-item">
+              <i class="fi fi-rr-smile"></i>
+              <p>Fechamento automático, preciso e rápido</p>
+            </div>
+            
+            <div class="solucao-item">
+              <i class="fi fi-rr-smile"></i>
+              <p>Relatórios detalhados para tomar melhores decisões</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cta-center">
+          <a href="https://wa.me/64999729284" class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">
+            <i class="fi fi-brands-whatsapp"></i>
+            <span>Fazer a Transformação Agora</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vídeo Demonstrativo -->
+    <section class="video-demo" id="video" aria-labelledby="video-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="video-heading">Veja Como é Simples</h2>
+          <p class="section-subtitle">Assista a demonstração completa do Safe Menu em ação</p>
+        </div>
+        
+        <div class="video-wrapper">
+          <div class="video-container">
+            <!-- Placeholder para vídeo - Substituir com vídeo real -->
+            <div class="video-placeholder">
+              <i class="fi fi-rr-play-circle"></i>
+              <p>Vídeo demonstrativo em breve</p>
+              <small>Entre em contato para ver uma demonstração ao vivo</small>
+            </div>
+            <!-- Quando tiver vídeo, usar: -->
+            <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SEU_VIDEO_ID" 
+                 title="Safe Menu - Demonstração" frameborder="0" 
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                 allowfullscreen loading="lazy"></iframe> -->
+          </div>
+        </div>
+        
+        <div class="video-benefits">
+          <div class="benefit-badge">
+            <i class="fi fi-rr-clock"></i>
+            <span>Setup em 2 minutos</span>
+          </div>
+          <div class="benefit-badge">
+            <i class="fi fi-rr-mobile"></i>
+            <span>Interface intuitiva</span>
+          </div>
+          <div class="benefit-badge">
+            <i class="fi fi-rr-headset"></i>
+            <span>Suporte incluído</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Demonstração -->
+    <section class="prints-app" aria-labelledby="prints-heading">
+      <div class="container">
+        <h2 id="prints-heading">Veja o Safe Menu em ação</h2>
         <p class="subtitulo">
           Visual leve, simples de usar e 100% focado em facilitar seus pedidos.
         </p>
-        <div class="grid-prints">
-          <img src="imagens/print1.jpg" alt="Tela inicial do app" />
-          <img src="imagens/print2.jpg" alt="Cardápio digital" />
-          <img src="imagens/print3.jpg" alt="Pedido via WhatsApp" />
+        <div class="grid-prints" role="list">
+          <figure role="listitem">
+            <img src="imagens/print1.jpg" alt="Tela inicial do aplicativo Safe Menu mostrando dashboard principal" width="300" height="auto" loading="lazy" />
+            <figcaption class="sr-only">Tela inicial do app</figcaption>
+          </figure>
+          <figure role="listitem">
+            <img src="imagens/print2.jpg" alt="Cardápio digital com categorias e produtos" width="300" height="auto" loading="lazy" />
+            <figcaption class="sr-only">Cardápio digital</figcaption>
+          </figure>
+          <figure role="listitem">
+            <img src="imagens/print3.jpg" alt="Interface de pedido sendo enviado via WhatsApp" width="300" height="auto" loading="lazy" />
+            <figcaption class="sr-only">Pedido via WhatsApp</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="vantagens">
+    <!-- Seção de Vantagens -->
+    <section class="vantagens" aria-labelledby="vantagens-heading">
       <div class="container">
-        <h2>Por que usar o Safe Menu?</h2>
-    <div class="vantagens-grid">
-  <div class="vantagem">
-    <i class="fi fi-rr-qrcode"></i>
-    <h3>Pedidos via QR Code</h3>
-    <p>Clientes acessam o cardápio escaneando o QR Code e já fazem o pedido direto no WhatsApp.</p>
-  </div>
-  <div class="vantagem">
-    <i class="fi fi-rr-boxes"></i> <h3>Fácil de usar</h3>
-    <p>Totalmente intuitivo para você e para seus clientes. Sem complicação, sem instalação.</p>
-  </div>
-  <div class="vantagem">
-    <i class="fi fi-rr-clipboard"></i> <h3>Organize seu negócio</h3>
-    <p>Tenha controle de pedidos, estoque e veja o que mais vende com poucos cliques.</p>
-  </div>
-</div>
+        <h2 id="vantagens-heading">Por que usar o Safe Menu?</h2>
+        <div class="vantagens-grid" role="list">
+          <article class="vantagem" role="listitem">
+            <i class="fi fi-rr-qrcode" aria-hidden="true"></i>
+            <h3>Pedidos via QR Code</h3>
+            <p>Clientes acessam o cardápio escaneando o QR Code e já fazem o pedido direto no WhatsApp.</p>
+          </article>
+          <article class="vantagem" role="listitem">
+            <i class="fi fi-rr-boxes" aria-hidden="true"></i>
+            <h3>Fácil de usar</h3>
+            <p>Totalmente intuitivo para você e para seus clientes. Sem complicação, sem instalação.</p>
+          </article>
+          <article class="vantagem" role="listitem">
+            <i class="fi fi-rr-clipboard" aria-hidden="true"></i>
+            <h3>Organize seu negócio</h3>
+            <p>Tenha controle de pedidos, estoque e veja o que mais vende com poucos cliques.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="depoimentos">
+    <!-- Seção de Depoimentos -->
+    <section class="depoimentos" aria-labelledby="depoimentos-heading">
       <div class="container">
-        <h2>O que dizem nossos clientes</h2>
-        <div class="depoimentos-grid">
-          <div class="card-depoimento">
-            <p>
-              "Com o Safe Menu, meus pedidos ficaram muito mais organizados.
-              Meus clientes adoram usar o cardápio pelo celular!"
-            </p>
-            <h4>João Silva</h4>
-            <span>Dono da Lanchonete do João</span>
+        <h2 id="depoimentos-heading">O que dizem nossos clientes</h2>
+        <div class="depoimentos-grid" role="list">
+          <article class="card-depoimento" role="listitem">
+            <blockquote>
+              <p>
+                "Com o Safe Menu, meus pedidos ficaram muito mais organizados.
+                Meus clientes adoram usar o cardápio pelo celular!"
+              </p>
+            </blockquote>
+            <footer>
+              <h4>João Silva</h4>
+              <span>Dono da Lanchonete do João</span>
+            </footer>
+          </article>
+          <article class="card-depoimento" role="listitem">
+            <blockquote>
+              <p>
+                "Comecei com o plano gratuito e em menos de uma semana já quis
+                migrar pro Pro. Simplesmente mudou minha rotina."
+              </p>
+            </blockquote>
+            <footer>
+              <h4>Ana Costa</h4>
+              <span>Proprietária do Açaí da Ana</span>
+            </footer>
+          </article>
+          <article class="card-depoimento" role="listitem">
+            <blockquote>
+              <p>
+                "Economizei com impressão e ainda aumentei meus pedidos. O melhor
+                é que tudo vai direto pro WhatsApp!"
+              </p>
+            </blockquote>
+            <footer>
+              <h4>Carlos Mendes</h4>
+              <span>Dono da Pizzaria Mendes</span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Casos de Sucesso / Clientes -->
+    <section class="clientes" id="clientes" aria-labelledby="clientes-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="clientes-heading">Restaurantes que Confiam no Safe Menu</h2>
+          <p class="section-subtitle">Junte-se a centenas de estabelecimentos que transformaram seus negócios</p>
+        </div>
+        
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Restaurantes Ativos</div>
           </div>
-          <div class="card-depoimento">
-            <p>
-              "Comecei com o plano gratuito e em menos de uma semana já quis
-              migrar pro Pro. Simplesmente mudou minha rotina."
-            </p>
-            <h4>Ana Costa</h4>
-            <span>Proprietária do Açaí da Ana</span>
+          <div class="stat-card">
+            <div class="stat-number">50mil+</div>
+            <div class="stat-label">Pedidos Mensais</div>
           </div>
-          <div class="card-depoimento">
-            <p>
-              "Economizei com impressão e ainda aumentei meus pedidos. O melhor
-              é que tudo vai direto pro WhatsApp!"
-            </p>
-            <h4>Carlos Mendes</h4>
-            <span>Dono da Pizzaria Mendes</span>
+          <div class="stat-card">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfação</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">35%</div>
+            <div class="stat-label">Aumento Médio em Vendas</div>
+          </div>
+        </div>
+        
+        <!-- Logos de clientes (placeholder) -->
+        <div class="clientes-logos">
+          <div class="logo-item">
+            <i class="fi fi-rr-restaurant"></i>
+            <span>Lanchonete do João</span>
+          </div>
+          <div class="logo-item">
+            <i class="fi fi-rr-apple-whole"></i>
+            <span>Açaí da Ana</span>
+          </div>
+          <div class="logo-item">
+            <i class="fi fi-rr-pizza-slice"></i>
+            <span>Pizzaria Mendes</span>
+          </div>
+          <div class="logo-item">
+            <i class="fi fi-rr-coffee"></i>
+            <span>Café Central</span>
+          </div>
+          <div class="logo-item">
+            <i class="fi fi-rr-burger-soda"></i>
+            <span>Burger House</span>
+          </div>
+          <div class="logo-item">
+            <i class="fi fi-rr-salad"></i>
+            <span>Saladas & Cia</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contato" id="contato">
+    <!-- FAQ - Perguntas Frequentes -->
+    <section class="faq" id="faq" aria-labelledby="faq-heading">
       <div class="container">
-        <h2>Pronto para aumentar suas vendas?</h2>
+        <div class="section-header">
+          <h2 id="faq-heading">Perguntas Frequentes</h2>
+          <p class="section-subtitle">Tire suas dúvidas sobre o Safe Menu</p>
+        </div>
+        
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>
+              <h3>Como funciona o plano gratuito?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>O plano gratuito oferece cardápio digital completo com link personalizado e QR Code. Você pode cadastrar produtos ilimitados e seus clientes visualizam tudo de forma profissional. É gratuito para sempre, sem pegadinhas!</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>Preciso de conhecimento técnico para usar?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Não! O Safe Menu foi desenvolvido para ser extremamente simples. Em menos de 5 minutos você cadastra seus produtos e já está pronto para receber pedidos. Oferecemos também suporte completo para te ajudar em qualquer dúvida.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>Como funcionam os pedidos via WhatsApp?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Seu cliente escolhe os produtos no cardápio digital e clica em "Fazer Pedido". Automaticamente, uma mensagem formatada com todos os itens é enviada para seu WhatsApp. Você só precisa confirmar e preparar o pedido!</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>Posso cancelar a qualquer momento?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Sim! Não temos contratos ou fidelidade. Você pode cancelar quando quiser, sem burocracia. O plano gratuito é vitalício e o plano Pro pode ser cancelado a qualquer momento.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>Quanto tempo leva para começar a usar?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Você pode começar a usar em menos de 2 minutos! Basta se cadastrar pelo WhatsApp, adicionar seus produtos com fotos e preços, e pronto. Seu cardápio digital já estará disponível para compartilhar com seus clientes.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>O que acontece se eu mudar de plano?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Você pode fazer upgrade do plano Gratuito para o Pro a qualquer momento. Todos os seus dados são preservados e as novas funcionalidades ficam disponíveis imediatamente. Também é possível fazer downgrade se preferir.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>Existe limite de produtos no cardápio?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Não! Tanto no plano Gratuito quanto no Pro, você pode cadastrar produtos ilimitados. Organize por categorias, adicione fotos, descrições e personalizações sem restrições.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary>
+              <h3>Como funciona o suporte?</h3>
+              <i class="fi fi-rr-angle-down"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>No plano Pro, oferecemos suporte prioritário 24/7 via WhatsApp. Nossa equipe responde rapidamente para resolver qualquer dúvida ou problema. O plano Gratuito conta com suporte em horário comercial.</p>
+            </div>
+          </details>
+        </div>
+        
+        <div class="faq-cta">
+          <p>Não encontrou sua resposta?</p>
+          <a href="https://wa.me/64999729284" class="btn-cta btn-secondary" target="_blank" rel="noopener noreferrer">
+            <i class="fi fi-brands-whatsapp"></i>
+            <span>Fale Conosco</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Garantia -->
+    <section class="garantia" aria-labelledby="garantia-heading">
+      <div class="container">
+        <div class="garantia-card">
+          <div class="garantia-icon">
+            <i class="fi fi-rr-shield-check"></i>
+          </div>
+          <div class="garantia-content">
+            <h2 id="garantia-heading">Garantia de Satisfação Total</h2>
+            <p class="garantia-text">
+              Teste o Safe Menu por <strong>15 dias gratuitamente</strong> no plano Pro. 
+              Se não ficar satisfeito, devolvemos 100% do seu dinheiro, sem perguntas. 
+              E o melhor: o plano básico é <strong>gratuito para sempre</strong>!
+            </p>
+            <ul class="garantia-features">
+              <li><i class="fi fi-rr-check"></i> 15 dias de teste grátis no plano Pro</li>
+              <li><i class="fi fi-rr-check"></i> Cancele quando quiser, sem burocracia</li>
+              <li><i class="fi fi-rr-check"></i> Plano Gratuito sem cartão de crédito</li>
+              <li><i class="fi fi-rr-check"></i> Sem contratos ou fidelidade</li>
+            </ul>
+            <a href="https://wa.me/64999729284" class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">
+              <i class="fi fi-brands-whatsapp"></i>
+              <span>Testar Sem Risco Agora</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section class="contato" id="contato" aria-labelledby="contato-heading">
+      <div class="container">
+        <h2 id="contato-heading">Pronto para aumentar suas vendas?</h2>
         <p class="subtitulo">
           Fale com um consultor e automatize seu atendimento hoje mesmo!
         </p>
         <form
           class="formulario-contato"
-          action="https://formsubmit.co/seuemail@gmail.com"
+          action="https://formsubmit.co/safemenu.digital@gmail.com"
           method="POST"
+          aria-label="Formulário de contato"
         >
-          <input type="text" name="nome" placeholder="Seu nome" required />
-          <input type="email" name="email" placeholder="Seu e-mail" required />
-          <textarea
-            name="mensagem"
-            rows="5"
-            placeholder="Digite sua mensagem..."
-            required
-          ></textarea>
-          <button type="submit">Falar com um consultor</button>
+          <input type="hidden" name="_subject" value="Novo contato do site Safe Menu" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://safemenu.com.br/#contato" />
+          
+          <div class="form-group">
+            <label for="nome" class="sr-only">Nome completo</label>
+            <input 
+              type="text" 
+              id="nome" 
+              name="nome" 
+              placeholder="Seu nome completo" 
+              required 
+              minlength="3"
+              autocomplete="name"
+              aria-required="true" />
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="sr-only">E-mail</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="seu@email.com" 
+              required 
+              autocomplete="email"
+              aria-required="true" />
+          </div>
+          
+          <div class="form-group">
+            <label for="telefone" class="sr-only">Telefone (opcional)</label>
+            <input 
+              type="tel" 
+              id="telefone" 
+              name="telefone" 
+              placeholder="(00) 00000-0000 (opcional)" 
+              autocomplete="tel" />
+          </div>
+          
+          <div class="form-group">
+            <label for="mensagem" class="sr-only">Mensagem</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="5"
+              placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
+              required
+              minlength="10"
+              aria-required="true"
+            ></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">Falar com um consultor</button>
         </form>
         <p class="whatsapp-link">
           Ou comece agora mesmo o teste gratuito
-          <a href="https://wa.me/64999729284" target="_blank">clicando aqui</a>!
+          <a href="https://wa.me/64999729284" target="_blank" rel="noopener noreferrer" title="Iniciar teste gratuito via WhatsApp">clicando aqui</a>!
         </p>
       </div>
     </section>
 
-    <footer class="rodape">
+    <!-- Rodapé -->
+    <footer class="rodape" role="contentinfo">
       <div class="container">
-        <p>© 2025 Safe Menu · Todos os direitos reservados</p>
-        <div class="links-sociais">
-          <a href="https://wa.me/64999729284" target="_blank">WhatsApp</a>
-          <a href="https://instagram.com/seuPerfilAqui" target="_blank"
-            >Instagram</a
-          >
-          <a href="mailto:safemenu.digital@gmail.com">E-mail</a>
-           <a href="politica_privacidade.html">Política de Privacidade</a>
-          <a href="termos_uso.html">Termos de Uso</a>
+        <div class="rodape-content">
+          <!-- Logo e Brand -->
+          <div class="rodape-brand">
+            <img src="imagens/logo.png" alt="Safe Menu" class="rodape-logo" width="40" height="40" />
+            <div>
+              <h3>Safe Menu</h3>
+              <p>Cardápio digital com pedidos via WhatsApp</p>
+            </div>
+          </div>
+          
+          <!-- Navegação -->
+          <nav class="rodape-nav" aria-label="Links do rodapé">
+            <a href="#planos">Planos</a>
+            <a href="#funcionalidades">Funcionalidades</a>
+            <a href="#cupons">Cupons</a>
+            <a href="#faq">FAQ</a>
+            <a href="politica_privacidade.html">Privacidade</a>
+            <a href="termos_uso.html">Termos</a>
+          </nav>
+          
+          <!-- Contato e Redes -->
+          <div class="rodape-contact">
+            <a href="https://wa.me/64999729284" target="_blank" rel="noopener noreferrer" class="rodape-whatsapp">
+              <i class="fi fi-brands-whatsapp"></i>
+              <span>(64) 99972-9284</span>
+            </a>
+            <div class="rodape-social">
+              <a href="https://instagram.com/safemenu" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fi fi-brands-instagram"></i>
+              </a>
+              <a href="https://facebook.com/safemenu" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fi fi-brands-facebook"></i>
+              </a>
+              <a href="https://youtube.com/@safemenu" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="fi fi-brands-youtube"></i>
+              </a>
+              <a href="mailto:safemenu.digital@gmail.com" aria-label="Email">
+                <i class="fi fi-rr-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="rodape-bottom">
+          <p>&copy; 2025 <strong>Safe Menu</strong>. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
+    
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/64999729284" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" title="Conversar no WhatsApp">
+      <i class="fi fi-brands-whatsapp"></i>
+      <span class="whatsapp-text">Fale Conosco</span>
+    </a>
+    
   </body>
 </html>
