@@ -464,6 +464,7 @@ body.dark-mode .icon-button:hover {
   position: relative;
   overflow: hidden;
   margin-bottom: var(--spacing-2xl);
+  min-height: auto;
 }
 
 /* Efeito de gradiente animado */
@@ -3051,24 +3052,38 @@ body.dark-mode .rodape {
   
   /* HERO - Mobile */
   .hero {
-    padding: clamp(60px, 10vw, 100px) 0 clamp(80px, 12vw, 120px);
-    margin-top: 60px;
+    padding: 40px 0 60px;
+    margin-top: 70px;
+    min-height: auto;
   }
   
   .hero::before {
-    width: 80%;
-    height: 70%;
+    display: none;
   }
   
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
   .hero-badge {
-    font-size: 0.8rem;
-    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    margin-bottom: 20px;
   }
   
   .hero-features {
     flex-direction: column;
     align-items: stretch;
     gap: var(--spacing-sm);
+    margin-bottom: 30px;
   }
   
   .hero-feature-item {
@@ -3085,17 +3100,34 @@ body.dark-mode .rodape {
   }
   
   /* HEADER */
+  .main-header {
+    padding: 12px 0;
+  }
+
   .header-wrapper {
-    padding: var(--spacing-xs) 0;
+    padding: 0;
   }
   
   .logo-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .header-logo {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn-header-cta {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .btn-header-cta span {
+    display: none;
+  }
+
+  .btn-header-cta i {
+    margin: 0;
   }
   
   .icon-button {
@@ -3111,6 +3143,12 @@ body.dark-mode .rodape {
     padding-top: 100px;
   }
   
+  /* CONTAINER - Mobile */
+  .container {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
   /* SEÇÕES - Espaçamentos Mobile */
   .planos,
   .funcionalidades,
@@ -3118,9 +3156,20 @@ body.dark-mode .rodape {
   .vantagens,
   .depoimentos,
   .contato {
-    padding: clamp(60px, 10vw, 80px) 0;
+    padding: 50px 0;
   }
   
+  /* SECTION HEADER */
+  .section-header h2 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   /* FUNCIONALIDADES */
   .funcionalidades-content {
     flex-direction: column;
@@ -3188,22 +3237,44 @@ body.dark-mode .rodape {
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
+    gap: 15px;
   }
   
-  .btn-cta {
+  .btn-cta,
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
     min-width: auto;
+    padding: 14px 20px;
+    font-size: 0.95rem;
   }
   
   /* RODAPÉ */
   .rodape {
-    padding: clamp(40px, 8vw, 60px) 0 clamp(25px, 5vw, 35px);
-    border-top-left-radius: var(--radius-xl);
-    border-top-right-radius: var(--radius-xl);
+    padding: 40px 0 25px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   
   .rodape-content {
-    gap: var(--spacing-lg);
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .rodape-secao {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .rodape-secao h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .rodape-secao p,
+  .rodape-secao ul li a {
+    font-size: 0.9rem;
   }
   
   .links-sociais {
@@ -3266,13 +3337,20 @@ body.dark-mode .rodape {
   
   /* Tabela Comparação */
   .tabela-comparacao {
-    margin: var(--spacing-lg) 0;
+    margin: 20px 0;
+    overflow-x: auto;
+    display: block;
+    max-width: 100%;
+  }
+  
+  .tabela-comparacao table {
+    min-width: 600px;
   }
   
   .tabela-comparacao th,
   .tabela-comparacao td {
-    padding: var(--spacing-sm) var(--spacing-xs);
-    font-size: 0.85rem;
+    padding: 10px 8px;
+    font-size: 0.8rem;
   }
   
   .tabela-comparacao th:first-child,
@@ -3281,6 +3359,7 @@ body.dark-mode .rodape {
     left: 0;
     background: var(--color-card-bg);
     z-index: 1;
+    min-width: 120px;
   }
   
   /* Antes vs Depois */
